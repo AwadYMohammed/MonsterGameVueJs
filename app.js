@@ -52,5 +52,8 @@ new Vue({
                 text: 'Player heals for 10'
             });
             this.monsterAttacks();
+        },
+        giveUp: function () {
+            this.gameIsRunning = false;
         }
 });
