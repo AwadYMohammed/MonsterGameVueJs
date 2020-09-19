@@ -29,4 +29,16 @@ new Vue({
 		calculateDamage: function(min, max) {
             return Math.max(Math.floor(Math.random() * max) + 1, min);
         },
+        specialAttack: function () {
+            var damage = this.calculateDamage(10, 20);
+            this.monsterHealth -= damage;
+            this.turns.unshift({
+                isPlayer: true,
+                text: 'Player hits Monster hard for ' + damage
+            });
+            if (this.checkWin()) {
+                return;
+            }
+            this.monsterAttacks();
+        }
 });
